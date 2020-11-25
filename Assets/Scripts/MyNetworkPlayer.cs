@@ -46,8 +46,11 @@ public class MyNetworkPlayer : NetworkBehaviour
 	[Command]
 	void CmdSetDisplayName(string newDisplayName)
 	{
-		RpcLogNewName(newDisplayName);
-		SetDisplayName(newDisplayName);
+		if(newDisplayName.Length >= 2 && newDisplayName.Length <= 15)
+		{
+			RpcLogNewName(newDisplayName);
+			SetDisplayName(newDisplayName);
+		}
 	}
 	#endregion
 
